@@ -70,50 +70,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ============================================
-    // Registration Form Handling
+    // Reset Scroll Position on Page Load
     // ============================================
 
-    const registrationForm = document.getElementById('registrationForm');
-    
-    if (registrationForm) {
-        registrationForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Get form values
-            const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const phone = this.querySelector('input[type="tel"]').value;
-            const interest = this.querySelector('select').value;
-
-            // Validate form
-            if (!name || !email || !interest) {
-                showNotification('Please fill in all required fields', 'error');
-                return;
-            }
-
-            // Validate email format
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showNotification('Please enter a valid email address', 'error');
-                return;
-            }
-
-            // Show success message
-            showNotification('Thank you for registering! We\'ll send you confirmation details soon.', 'success');
-
-            // Reset form
-            this.reset();
-
-            // In a real application, you would send this data to a server
-            console.log({
-                name,
-                email,
-                phone,
-                interest,
-                timestamp: new Date().toISOString()
-            });
-        });
-    }
+    // Always start at the top of the page
+    window.scrollTo(0, 0);
 
     // ============================================
     // Notification System
