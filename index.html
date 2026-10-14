@@ -1,14 +1,422 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ignite NYC 2026</title>
-  </head>
-  <body>
-    <main>
-      <h1>Ignite NYC 2026</h1>
-      <p>More details coming soon.</p>
-    </main>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Microsoft Ignite NYC 2026 - A one-day technology conference featuring global Ignite sessions and .NET Conf content. November 16, 2026 in New York City.">
+    <meta name="theme-color" content="#0078D4">
+    <title>Microsoft Ignite NYC 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>Ignite NYC 2026</h1>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#sessions">Sessions</a></li>
+                <li><a href="#speakers">Speakers</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#register" class="nav-cta">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: linear-gradient(135deg, rgba(0, 120, 212, 0.85) 0%, rgba(121, 40, 202, 0.85) 100%), url('images/hero-background.jpg'); background-size: cover; background-position: center;">
+        <div class="hero-overlay">
+            <div class="container">
+                <div class="hero-content">
+                    <img src="images/ignite-nyc-badge.png" alt="Microsoft Ignite NYC 2026 event badge" class="hero-badge">
+                    <h2>Microsoft Ignite NYC 2026</h2>
+                    <p class="hero-subtitle">November 16, 2026 | New York City</p>
+                    <p class="hero-description">Join us for a transformative one-day conference featuring the latest in cloud, AI, and .NET innovation from the global Ignite and .NET Conf communities.</p>
+                    <div class="hero-buttons">
+                        <a href="#register" class="btn btn-primary">Register Now</a>
+                        <a href="#about" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About the Event</h2>
+                <p class="section-subtitle">A Premier Technology Conference in the Heart of NYC</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="images/about-banner.jpg" alt="Tech conference attendees networking in NYC venue with digital displays">
+                </div>
+                <div class="about-content">
+                    <h3>Welcome to Ignite NYC 2026</h3>
+                    <p>Microsoft Ignite NYC brings together hundreds of technology leaders, developers, and innovators for an exclusive one-day event in New York City. This year, we're combining the best of global Microsoft Ignite with curated .NET Conf 2026 sessions.</p>
+                    
+                    <h4>What You'll Experience</h4>
+                    <ul class="features-list">
+                        <li><span class="icon"><i class="fas fa-lightbulb"></i></span> Latest innovations in cloud and AI</li>
+                        <li><span class="icon"><i class="fas fa-code"></i></span> Deep-dive .NET development sessions</li>
+                        <li><span class="icon"><i class="fas fa-network-wired"></i></span> Networking opportunities with industry experts</li>
+                        <li><span class="icon"><i class="fas fa-graduation-cap"></i></span> Learning from thought leaders and technical experts</li>
+                    </ul>
+
+                    <p>Whether you're interested in cloud architecture, AI and machine learning, modern .NET development, or enterprise transformation, Ignite NYC has sessions tailored for you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats Section -->
+    <section class="stats">
+        <svg viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid slice" class="skyline-bg" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="skylineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1F2937;stop-opacity:0.1" />
+                    <stop offset="100%" style="stop-color:#1F2937;stop-opacity:0" />
+                </linearGradient>
+            </defs>
+            <path d="M 0,150 L 0,200 Q 200,180 400,200 L 400,0 L 0,0 Z" fill="url(#skylineGrad)"/>
+            <path d="M 300,100 L 300,200 Q 500,180 700,200 L 700,50 L 300,50 Z" fill="url(#skylineGrad)"/>
+            <path d="M 600,120 L 600,200 Q 800,180 1000,200 L 1000,80 L 600,80 Z" fill="url(#skylineGrad)"/>
+            <path d="M 900,140 L 900,200 Q 1100,180 1200,200 L 1200,100 L 900,100 Z" fill="url(#skylineGrad)"/>
+        </svg>
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">1 Day</div>
+                    <div class="stat-label">Packed with Learning</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Sessions & Workshops</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">NYC</div>
+                    <div class="stat-label">Premier Location</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Expert Speakers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sessions/Tracks Section -->
+    <section id="sessions" class="sessions">
+        <div class="container">
+            <div class="section-header">
+                <h2>Conference Tracks</h2>
+                <p class="section-subtitle">Explore our curated session tracks</p>
+            </div>
+            <div class="tracks-grid">
+                <div class="track-card">
+                    <div class="track-image">
+                        <img src="images/track-global-ignite.jpg" alt="Global technology conference with cloud and AI visualizations">
+                    </div>
+                    <div class="track-content">
+                        <h3>Global Ignite</h3>
+                        <p>Discover the latest announcements and innovations from Microsoft Ignite, featuring cloud infrastructure, enterprise solutions, and digital transformation strategies.</p>
+                        <a href="#" class="btn-link">Explore Track <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="track-card">
+                    <div class="track-image">
+                        <img src="images/track-dotnet-conf.jpg" alt=".NET development environment with code and modern development tools">
+                    </div>
+                    <div class="track-content">
+                        <h3>.NET Conf 2026</h3>
+                        <p>Dive into the latest .NET platform features, C# innovations, and modern development practices with sessions from .NET Conf 2026.</p>
+                        <a href="#" class="btn-link">Explore Track <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="track-card">
+                    <div class="track-image">
+                        <img src="images/track-ai-innovation.jpg" alt="Artificial intelligence and machine learning concepts with neural networks">
+                    </div>
+                    <div class="track-content">
+                        <h3>AI & Innovation</h3>
+                        <p>Learn about artificial intelligence, machine learning, and cutting-edge innovation shaping the future of technology and business.</p>
+                        <a href="#" class="btn-link">Explore Track <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="track-card">
+                    <div class="track-image">
+                        <img src="images/track-cloud-infrastructure.jpg" alt="Cloud computing infrastructure and data center technology">
+                    </div>
+                    <div class="track-content">
+                        <h3>Cloud & Infrastructure</h3>
+                        <p>Master cloud architecture, infrastructure as code, security, and scalability patterns for modern enterprise environments.</p>
+                        <a href="#" class="btn-link">Explore Track <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speakers Section -->
+    <section id="speakers" class="speakers">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Speakers</h2>
+                <p class="section-subtitle">Learn from industry experts and thought leaders</p>
+            </div>
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="images/speakers/speaker-1.jpg" alt="Featured speaker headshot - technology thought leader">
+                    </div>
+                    <h3>Industry Expert</h3>
+                    <p class="speaker-title">Cloud Architecture Lead</p>
+                    <p class="speaker-bio">A visionary thought leader bringing decades of experience in cloud infrastructure and enterprise solutions.</p>
+                </div>
+
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="images/speakers/speaker-2.jpg" alt="Featured speaker headshot - cloud architect expert">
+                    </div>
+                    <h3>Platform Architect</h3>
+                    <p class="speaker-title">.NET Ecosystem Expert</p>
+                    <p class="speaker-bio">A seasoned developer and architect specializing in modern .NET development and cloud-native applications.</p>
+                </div>
+
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="images/speakers/speaker-3.jpg" alt="Featured speaker headshot - developer relations leader">
+                    </div>
+                    <h3>Innovation Lead</h3>
+                    <p class="speaker-title">AI & ML Specialist</p>
+                    <p class="speaker-bio">Pioneering the future of AI and machine learning, bringing practical insights to enterprise innovation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="schedule">
+        <div class="container">
+            <div class="section-header">
+                <h2>Event Schedule</h2>
+                <p class="section-subtitle">November 16, 2026</p>
+            </div>
+            <div class="schedule-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">8:00 AM - 9:00 AM</div>
+                    <div class="timeline-content">
+                        <h4>Registration & Breakfast</h4>
+                        <p>Arrive early, grab breakfast, and network with fellow attendees</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">9:00 AM - 9:30 AM</div>
+                    <div class="timeline-content">
+                        <h4>Keynote Address</h4>
+                        <p>Open the day with insights from industry leaders on the future of technology</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">9:45 AM - 12:30 PM</div>
+                    <div class="timeline-content">
+                        <h4>Session Block 1</h4>
+                        <p>Choose from multiple concurrent sessions across all tracks</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">12:30 PM - 1:30 PM</div>
+                    <div class="timeline-content">
+                        <h4>Lunch & Networking</h4>
+                        <p>Enjoy lunch and connect with speakers and attendees</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">1:30 PM - 4:15 PM</div>
+                    <div class="timeline-content">
+                        <h4>Session Block 2</h4>
+                        <p>Continue learning with afternoon sessions and deep-dives</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">4:15 PM - 4:45 PM</div>
+                    <div class="timeline-content">
+                        <h4>Closing Remarks & Raffle</h4>
+                        <p>Wrap up the day and celebrate our community</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">5:00 PM - 7:00 PM</div>
+                    <div class="timeline-content">
+                        <h4>After-Party Reception</h4>
+                        <p>Continue networking at our exclusive after-event reception</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location">
+        <div class="container">
+            <div class="section-header">
+                <h2>Location & Logistics</h2>
+                <p class="section-subtitle">Join us in the heart of Manhattan</p>
+            </div>
+            <div class="location-grid">
+                <div class="location-image">
+                    <img src="images/venue-location.jpg" alt="Microsoft office and event venue location in Manhattan, New York City">
+                </div>
+                <div class="location-content">
+                    <h3>Microsoft Office, Manhattan</h3>
+                    <div class="location-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p>Microsoft NYC Office<br>New York, NY</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-subway"></i>
+                            <div>
+                                <h4>Public Transit</h4>
+                                <p>Accessible via NYC subway and major transit lines</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-parking"></i>
+                            <div>
+                                <h4>Parking</h4>
+                                <p>Street parking and nearby garages available</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-wheelchair"></i>
+                            <div>
+                                <h4>Accessibility</h4>
+                                <p>Fully accessible venue with all ADA accommodations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="venue-interior">
+            <img src="images/venue-interior.jpg" alt="Modern conference venue interior with seating and presentation stage">
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="register" class="registration">
+        <div class="container">
+            <div class="registration-content">
+                <h2>Register Today</h2>
+                <p>Secure your spot at Microsoft Ignite NYC 2026. Limited capacity available!</p>
+                <form class="registration-form" id="registrationForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="">Select Your Primary Interest</option>
+                            <option value="ignite">Global Ignite</option>
+                            <option value="dotnet">.NET Conf</option>
+                            <option value="ai">AI & Innovation</option>
+                            <option value="cloud">Cloud & Infrastructure</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg">Register Now</button>
+                </form>
+                <p class="form-note">We respect your privacy. <a href="#">Privacy Policy</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <svg viewBox="0 0 1200 150" preserveAspectRatio="xMidYMid slice" class="skyline-footer" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="footerSkyline" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#0078D4;stop-opacity:0.15" />
+                    <stop offset="100%" style="stop-color:#0078D4;stop-opacity:0" />
+                </linearGradient>
+            </defs>
+            <path d="M 0,100 L 0,150 Q 200,130 400,150 L 400,20 L 0,20 Z" fill="url(#footerSkyline)"/>
+            <path d="M 300,80 L 300,150 Q 500,130 700,150 L 700,40 L 300,40 Z" fill="url(#footerSkyline)"/>
+            <path d="M 600,95 L 600,150 Q 800,130 1000,150 L 1000,60 L 600,60 Z" fill="url(#footerSkyline)"/>
+            <path d="M 900,110 L 900,150 Q 1100,130 1200,150 L 1200,80 L 900,80 Z" fill="url(#footerSkyline)"/>
+        </svg>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Microsoft Ignite NYC 2026</h4>
+                    <p>A one-day technology conference in New York City</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#sessions">Sessions</a></li>
+                        <li><a href="#speakers">Speakers</a></li>
+                        <li><a href="#schedule">Schedule</a></li>
+                        <li><a href="#location">Location</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Learn More</h4>
+                    <ul>
+                        <li><a href="https://ignite.microsoft.com" target="_blank">Global Microsoft Ignite</a></li>
+                        <li><a href="https://www.dotnetconf.net" target="_blank">.NET Conf 2026</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://twitter.com/microsoft" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/microsoft/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.youtube.com/microsoft" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/microsoft/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Microsoft Ignite NYC. All rights reserved.</p>
+                <div class="footer-logos">
+                    <img src="images/microsoft-ignite-logo.png" alt="Microsoft Ignite conference official logo" class="footer-logo">
+                    <img src="images/dotnet-conf-logo.png" alt=".NET Conf conference official logo" class="footer-logo">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
