@@ -326,6 +326,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // ============================================
+    // Speakers Carousel
+    // ============================================
+
+    const speakersCarousel = document.getElementById('speakersCarousel');
+    if (speakersCarousel) {
+        const speakerCards = speakersCarousel.querySelectorAll('.speaker-card');
+        const cardWidth = speakerCards[0]?.offsetWidth || 280;
+        const gapWidth = 32; // 2rem gap
+        const totalWidth = (cardWidth + gapWidth) * speakerCards.length;
+        
+        let currentScroll = 0;
+        
+        function scrollCarousel() {
+            currentScroll += cardWidth + gapWidth;
+            
+            // Infinite wrap - when we reach the end, jump back to start smoothly
+            if (currentScroll >= totalWidth) {
+                currentScroll = 0;
+            }
+            
+            speakersCarousel.scrollLeft = currentScroll;
+        }
+        
+        // Auto-scroll every 3 seconds
+        setInterval(scrollCarousel, 3000);
+    }
 });
 
 // ============================================
