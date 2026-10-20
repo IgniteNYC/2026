@@ -343,8 +343,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             let scrollIndex = 0;
+            let carouselInterval = null;
+            let isHovering = false;
             
             function scrollCarousel() {
+                if (isHovering) return;
+                
                 const cards = speakersCarousel.querySelectorAll('.speaker-card');
                 if (cards.length === 0) return;
                 
@@ -368,8 +372,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
-            // Auto-scroll every 3 seconds
-            setInterval(scrollCarousel, 3000);
+            // Start auto-scroll
+            carouselInterval = setInterval(scrollCarousel, 3000);
+            
+            // Pause on mouseover
+            speakersCarousel.addEventListener('mouseenter', () => {
+                isHovering = true;
+            });
+            
+            // Resume on mouseleave
+            speakersCarousel.addEventListener('mouseleave', () => {
+                isHovering = false;
+            });
         }, 500);
     }
 });
