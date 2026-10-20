@@ -343,6 +343,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             let scrollIndex = 0;
+            let carouselInterval = null;
             
             function scrollCarousel() {
                 const cards = speakersCarousel.querySelectorAll('.speaker-card');
@@ -368,8 +369,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
-            // Auto-scroll every 3 seconds
-            setInterval(scrollCarousel, 3000);
+            function startCarousel() {
+                if (!carouselInterval) {
+                    carouselInterval = setInterval(scrollCarousel, 3000);
+                }
+            }
+            
+            function stopCarousel() {
+                if (carouselInterval) {
+                    clearInterval(carouselInterval);
+                    carouselInterval = null;
+                }
+            }
+            
+            // Start auto-scroll
+            startCarousel();
+            
+            // Pause on mouseover
+            speakersCarousel.addEventListener('mouseenter', () => {
+                stopCarousel();
+            });
+            
+            // Resume on mouseleave
+            speakersCarousel.addEventListener('mouseleave', () => {
+                startCarousel();
+            });
         }, 500);
     }
 });
