@@ -570,6 +570,13 @@ p {
     gap: 2rem;
     scroll-behavior: smooth;
     padding: 1rem 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
+
+.speakers-carousel::-webkit-scrollbar {
+    display: none;
 }
 
 .speaker-card {
@@ -579,7 +586,7 @@ p {
     text-align: center;
     box-shadow: var(--shadow);
     transition: var(--transition);
-    min-width: 280px;
+    min-width: 320px;
     flex-shrink: 0;
 }
 
