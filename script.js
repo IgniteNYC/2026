@@ -326,6 +326,52 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // ============================================
+    // Speakers Carousel
+    // ============================================
+
+    const speakersCarousel = document.getElementById('speakersCarousel');
+    if (speakersCarousel) {
+        // Wait for images to load to get accurate card width
+        setTimeout(() => {
+            const speakerCards = Array.from(speakersCarousel.querySelectorAll('.speaker-card'));
+            const originalCount = speakerCards.length;
+            
+            // Duplicate cards for infinite scroll
+            speakerCards.forEach(card => {
+                speakersCarousel.appendChild(card.cloneNode(true));
+            });
+            
+            let scrollIndex = 0;
+            
+            function scrollCarousel() {
+                const cards = speakersCarousel.querySelectorAll('.speaker-card');
+                if (cards.length === 0) return;
+                
+                const cardWidth = cards[0].offsetWidth;
+                const gapWidth = 32; // 2rem gap
+                const cardWithGap = cardWidth + gapWidth;
+                
+                scrollIndex++;
+                const scrollPosition = scrollIndex * cardWithGap;
+                
+                speakersCarousel.scrollLeft = scrollPosition;
+                
+                // Reset to beginning when reaching duplicated section
+                if (scrollIndex >= originalCount) {
+                    setTimeout(() => {
+                        speakersCarousel.style.scrollBehavior = 'auto';
+                        speakersCarousel.scrollLeft = 0;
+                        speakersCarousel.style.scrollBehavior = 'smooth';
+                        scrollIndex = 0;
+                    }, 100);
+                }
+            }
+            
+            // Auto-scroll every 3 seconds
+            setInterval(scrollCarousel, 3000);
+        }, 500);
+    }
 });
 
 // ============================================
