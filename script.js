@@ -356,17 +356,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 scrollIndex++;
                 const scrollPosition = scrollIndex * cardWithGap;
                 
-                speakersCarousel.scrollLeft = scrollPosition;
-                
                 // Reset to beginning when reaching duplicated section
                 if (scrollIndex >= originalCount) {
-                    setTimeout(() => {
-                        speakersCarousel.style.scrollBehavior = 'auto';
-                        speakersCarousel.scrollLeft = 0;
-                        speakersCarousel.style.scrollBehavior = 'smooth';
-                        scrollIndex = 0;
-                    }, 100);
+                    // Use instant scroll for reset, then continue
+                    speakersCarousel.style.scrollBehavior = 'auto';
+                    speakersCarousel.scrollLeft = 0;
+                    scrollIndex = 0;
+                    // Return early to avoid smooth scroll on reset
+                    return;
                 }
+                
+                // Use smooth scroll for normal scrolling
+                speakersCarousel.style.scrollBehavior = 'smooth';
+                speakersCarousel.scrollLeft = scrollPosition;
             }
             
             function startCarousel() {
