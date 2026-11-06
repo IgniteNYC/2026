@@ -358,11 +358,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Reset to beginning when reaching duplicated section
                 if (scrollIndex >= originalCount) {
-                    // Use instant scroll for reset, then continue
-                    speakersCarousel.style.scrollBehavior = 'auto';
-                    speakersCarousel.scrollLeft = 0;
-                    scrollIndex = 0;
-                    // Return early to avoid smooth scroll on reset
+                    speakersCarousel.style.scrollBehavior = 'smooth';
+                    speakersCarousel.addEventListener('scrollend', () => {
+                        speakersCarousel.style.scrollBehavior = 'auto';
+                        speakersCarousel.scrollLeft = 0;
+                        scrollIndex = 0;
+                    }, { once: true });
+                    speakersCarousel.scrollLeft = scrollPosition;
                     return;
                 }
                 
