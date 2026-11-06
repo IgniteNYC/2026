@@ -366,6 +366,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 const cards = speakersCarousel.querySelectorAll('.speaker-card');
                 if (cards.length > 0) {
                     const cardWithGap = cards[0].offsetWidth + 32;
+                    const cycleWidth = originalCount * cardWithGap;
+                    if (speakersCarousel.scrollLeft >= cycleWidth) {
+                        speakersCarousel.scrollLeft %= cycleWidth;
+                    }
                     scrollIndex = Math.min(
                         originalCount - 1,
                         Math.round(speakersCarousel.scrollLeft / cardWithGap)
