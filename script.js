@@ -339,13 +339,43 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Duplicate cards for infinite scroll
             speakerCards.forEach(card => {
-                speakersCarousel.appendChild(card.cloneNode(true));
+                const clone = card.cloneNode(true);
+                clone.style.opacity = '1';
+                clone.style.transform = 'translateY(0)';
+                speakersCarousel.appendChild(clone);
             });
             
             let scrollIndex = 0;
             let carouselInterval = null;
+            let pendingWrapTarget = null;
+
+            speakersCarousel.addEventListener('scrollend', () => {
+                if (pendingWrapTarget === null) return;
+
+                const target = pendingWrapTarget;
+                pendingWrapTarget = null;
+
+                if (Math.abs(speakersCarousel.scrollLeft - target) <= 1) {
+                    speakersCarousel.style.scrollBehavior = 'auto';
+                    speakersCarousel.scrollLeft = 0;
+                    scrollIndex = 0;
+                    return;
+                }
+
+                speakersCarousel.style.scrollBehavior = 'auto';
+                const cards = speakersCarousel.querySelectorAll('.speaker-card');
+                if (cards.length > 0) {
+                    const cardWithGap = cards[0].offsetWidth + 32;
+                    scrollIndex = Math.min(
+                        originalCount - 1,
+                        Math.round(speakersCarousel.scrollLeft / cardWithGap)
+                    );
+                }
+            });
             
             function scrollCarousel() {
+                if (pendingWrapTarget !== null) return;
+
                 const cards = speakersCarousel.querySelectorAll('.speaker-card');
                 if (cards.length === 0) return;
                 
@@ -358,12 +388,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Reset to beginning when reaching duplicated section
                 if (scrollIndex >= originalCount) {
-                    speakersCarousel.style.scrollBehavior = 'smooth';
-                    speakersCarousel.addEventListener('scrollend', () => {
+                    if (Math.abs(speakersCarousel.scrollLeft - scrollPosition) <= 1) {
                         speakersCarousel.style.scrollBehavior = 'auto';
                         speakersCarousel.scrollLeft = 0;
                         scrollIndex = 0;
-                    }, { once: true });
+                        return;
+                    }
+
+                    pendingWrapTarget = scrollPosition;
+                    speakersCarousel.style.scrollBehavior = 'smooth';
                     speakersCarousel.scrollLeft = scrollPosition;
                     return;
                 }
