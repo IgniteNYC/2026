@@ -344,6 +344,21 @@ document.addEventListener('DOMContentLoaded', function() {
             
             let scrollIndex = 0;
             let carouselInterval = null;
+            let visibleCardCount = 1;
+            
+            function calculateVisibleCards() {
+                const cards = speakersCarousel.querySelectorAll('.speaker-card');
+                if (cards.length === 0) return 1;
+                
+                const cardWidth = cards[0].offsetWidth;
+                const gapWidth = 32; // 2rem gap
+                const cardWithGap = cardWidth + gapWidth;
+                const carouselWidth = speakersCarousel.clientWidth;
+                
+                // Calculate how many cards fit in the visible viewport
+                visibleCardCount = Math.max(1, Math.floor(carouselWidth / cardWithGap));
+                return visibleCardCount;
+            }
             
             function scrollCarousel() {
                 const cards = speakersCarousel.querySelectorAll('.speaker-card');
@@ -353,7 +368,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 const gapWidth = 32; // 2rem gap
                 const cardWithGap = cardWidth + gapWidth;
                 
-                scrollIndex++;
+                // Calculate visible cards once per scroll
+                calculateVisibleCards();
+                
+                scrollIndex += visibleCardCount;
                 const scrollPosition = scrollIndex * cardWithGap;
                 
                 // Reset to beginning when reaching duplicated section
