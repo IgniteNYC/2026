@@ -356,7 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const carouselWidth = speakersCarousel.clientWidth;
                 
                 // Calculate how many cards fit in the visible viewport
-                visibleCardCount = Math.max(1, Math.floor(carouselWidth / cardWithGap));
+                visibleCardCount = Math.max(1, Math.floor((carouselWidth + gapWidth) / cardWithGap));
                 return visibleCardCount;
             }
             
@@ -376,13 +376,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Reset to beginning when reaching duplicated section
                 if (scrollIndex >= originalCount) {
+                    // Use modulo arithmetic to preserve visual flow
+                    scrollIndex %= originalCount;
+                    const newScrollPosition = scrollIndex * cardWithGap;
+                    
+                    // Instant repositioning to seamless equivalent position
+                    speakersCarousel.style.scrollBehavior = 'auto';
+                    speakersCarousel.scrollLeft = newScrollPosition;
+                    
+                    // Restore smooth scrolling for next iteration
                     speakersCarousel.style.scrollBehavior = 'smooth';
-                    speakersCarousel.addEventListener('scrollend', () => {
-                        speakersCarousel.style.scrollBehavior = 'auto';
-                        speakersCarousel.scrollLeft = 0;
-                        scrollIndex = 0;
-                    }, { once: true });
-                    speakersCarousel.scrollLeft = scrollPosition;
                     return;
                 }
                 
