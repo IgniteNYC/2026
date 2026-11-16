@@ -669,6 +669,23 @@ p {
     font-size: 0.9rem;
 }
 
+.linkedin-link {
+    display: inline-block;
+    margin-left: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.linkedin-link i {
+    font-size: 1.1rem;
+}
+
+.linkedin-link:hover {
+    color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
 @media (max-width: 768px) {
     .decks-section {
         padding: 2rem 0;
