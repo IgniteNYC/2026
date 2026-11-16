@@ -552,113 +552,162 @@ p {
 }
 
 /* ============================================
-   Speakers Section
-   ============================================ */
+/* ============================================
+    Presentation Decks Section
+    ============================================ */
 
-.speakers {
+.decks-section {
     padding: 4rem 0;
     background-color: #f8f9fa;
 }
 
-.speakers-carousel-wrapper {
-    overflow: hidden;
-    width: 100%;
-}
-
-.speakers-carousel {
-    display: flex;
-    gap: 2rem;
-    scroll-behavior: smooth;
-    padding: 1rem 0;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-}
-
-.speakers-carousel::-webkit-scrollbar {
-    display: none;
-}
-
-.speaker-card {
+.decks-table-wrapper {
     background-color: white;
     border-radius: 10px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    min-width: 320px;
-    max-width: 320px;
-    flex-shrink: 0;
-}
-
-.speaker-card:hover {
-    transform: translateY(-10px);
+    overflow: hidden;
     box-shadow: var(--shadow-lg);
 }
 
-.speaker-image {
-    margin-bottom: 1.5rem;
+.decks-table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.speaker-image img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+.decks-table thead {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+.decks-table th {
+    padding: 1.5rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.decks-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.decks-table tbody tr:hover {
+    background-color: rgba(0, 120, 212, 0.05);
+}
+
+.decks-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.decks-table td {
+    padding: 1.5rem;
+    vertical-align: middle;
+}
+
+.speaker-cell {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.speaker-thumbnail {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
     object-fit: cover;
+    flex-shrink: 0;
     box-shadow: var(--shadow);
 }
 
-.speaker-card h3 {
-    margin: 1rem 0 0.5rem;
+.speaker-info h4 {
+    margin: 0 0 0.25rem;
+    color: var(--text-dark);
 }
 
-.speaker-title {
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.speaker-bio {
-    font-size: 0.95rem;
+.speaker-info p {
+    margin: 0;
+    font-size: 0.85rem;
     color: var(--text-light);
 }
 
-.speaker-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    margin-bottom: 0.5rem;
+.presentation-cell {
+    color: var(--text-dark);
+    font-weight: 500;
+    line-height: 1.6;
 }
 
-.speaker-header h3 {
-    margin: 0;
+.download-cell {
+    text-align: center;
 }
 
-.linkedin-link {
+.btn-download {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: rgba(0, 120, 212, 0.1);
-    color: var(--primary-color);
-    transition: var(--transition);
-    flex-shrink: 0;
-}
-
-.linkedin-link:hover {
+    gap: 0.5rem;
+    padding: 10px 16px;
     background-color: var(--primary-color);
     color: white;
-    transform: scale(1.1);
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    text-decoration: none;
 }
 
-.linkedin-icon {
-    width: 18px;
-    height: 18px;
+.btn-download:hover {
+    background-color: #005a9e;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
 }
 
+.placeholder {
+    display: inline-block;
+    padding: 10px 16px;
+    background-color: #e5e7eb;
+    color: #6b7280;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .decks-section {
+        padding: 2rem 0;
+    }
+
+    .decks-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .decks-table {
+        font-size: 0.9rem;
+        min-width: 600px;
+    }
+
+    .decks-table th,
+    .decks-table td {
+        padding: 1rem;
+    }
+
+    .speaker-cell {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .speaker-thumbnail {
+        width: 60px;
+        height: 60px;
+    }
+
+    .speaker-info h4 {
+        font-size: 0.95rem;
+    }
+
+    .btn-download,
+    .placeholder {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
 }
 
 /* ============================================
